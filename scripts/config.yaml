@@ -70,7 +70,7 @@ Control:
     kp: 1.2 # Proportional Gain
     kd: 3.5 # differential Gain
   
-  Consensus_Control : 0 # Enable Consensus Control
+  Consensus_Control : True # Enable Consensus Control
   Consensus_params:
     con_kp : 3
     con_kd : 30 
