@@ -4,23 +4,23 @@ Robot:
   Max_force: 0.6 # Max-force in x and y axis
   Position:  # Intial Position of each Drones X Y Z ..... Add the position according to your no. of robots
     r1: 
-      x: -10
-      y: 10
+      x: -1
+      y: 1
       z: 1
 
     r2: 
-      x: -10
-      y: -10 
+      x: -1
+      y: -1
       z: 2 
     
     r3: 
-      x: 10
-      y: -10
+      x: 1
+      y: -1
       z: 3
     
     r4: 
-      x: 10
-      y: 10  
+      x: 1
+      y: 1
       z: 4
     
     r5: 

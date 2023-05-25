@@ -22,7 +22,10 @@ WORKDIR '/ros_ws'
 ENV QT_X11_NO_MITSHM 1
 RUN echo "source /ros_ws/devel/setup.bash" >> ~/.bashrc
 
-# HEALTHCHECK --interval=20s --timeout=5s --retries=3 --start-period=20s \
+HEALTHCHECK --interval=20s --timeout=5s --retries=3 --start-period=20s \
+     CMD ["/bin/bash", "-ci", "rostopic list"]
+
+
 CMD ["/bin/bash"]
 
 

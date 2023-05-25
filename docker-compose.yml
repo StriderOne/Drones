@@ -3,7 +3,7 @@ name: 'drones'
 
 services:
   scene:
-    image: test_ros
+    image: drone_base_image
     container_name: drones
     entrypoint: ["/bin/bash", "-ci", "cd /ros_ws && catkin build && source devel/setup.bash && roslaunch mascot simulation.launch"]
     environment:
@@ -20,6 +20,30 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
+  
+  # controller:
+  #   image: drone_base_image
+  #   container_name: drones_controller
+  #   entrypoint: ["/bin/bash", "-ci", "cd /ros_ws && source devel/setup.bash && roslaunch mascot initialization.launch"]
+  #   stdin_open: true
+  #   tty: true
+  #   environment:
+  #     - ROS_MASTER_URI=http://scene:11311
+  #     - DISPLAY
+  #     - XAUTORITY
+  #     - QT_X11_NO_MITSHM=1
+  #     - GUI=true
+  #   depends_on: 
+  #     scene:
+  #       condition: service_healthy
+  #   networks:
+  #     - general
+  #   ipc: host
+  #   volumes:
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /dev:/dev
+  #     - ./:/ros_ws/src
 
 networks:
   general:
