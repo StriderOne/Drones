@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <sdf version='1.7'>
   <world name='default'>
     <light name='sun' type='directional'>
@@ -32,14 +33,16 @@
             <friction>
               <ode>
                 <mu>100</mu>
-                <mu2>50</mu2>
+                <mu2>100</mu2>
               </ode>
               <torsional>
-                <ode/>
+                <mu>100</mu>
+                <mu2>100</mu2>
               </torsional>
             </friction>
             <contact>
-              <ode/>
+                <mu>100</mu>
+                <mu2>100</mu2>
             </contact>
             <bounce/>
           </surface>
@@ -86,7 +89,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='Gas Station'>
+    <!-- <model name='Gas Station'>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0 0 -0 0</pose>
@@ -132,13 +135,40 @@
         <kinematic>0</kinematic>
       </link>
       <pose>-14.4307 0.545255 0 0 -0 0</pose>
+    </model> -->
+    <model name="board" static="true">
+      <static>true</static>
+      <link name="link">
+          <static>true</static>
+          <origin pose="0 0 0 0 0 0"/>
+          <collision name="collision">
+              <geometry>
+                  <mesh>
+                    <uri>file://calib_board.dae</uri>
+                    <scale>1000 1 1</scale>
+                  </mesh>
+              </geometry>
+          </collision>
+          <visual name="visual" cast_shadows="false">
+              <geometry>
+                  <mesh>
+                    <uri>file://calib_board.dae</uri>
+                    <scale>1000 1 1</scale>
+                  </mesh>
+              </geometry>
+          </visual>
+      </link>
+      <gazebo reference="link">
+        <gravity>0</gravity>
+        <turnGravityOff>true</turnGravityOff>
+      </gazebo>
     </model>
     <state world_name='default'>
       <sim_time>176 986000000</sim_time>
       <real_time>178 95544114</real_time>
       <wall_time>1684998385 919800226</wall_time>
       <iterations>176986</iterations>
-      <model name='Gas Station'>
+      <!-- <model name='Gas Station'>
         <pose>-14.4307 0.545255 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -147,7 +177,7 @@
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-      </model>
+      </model> -->
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -158,6 +188,17 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='board'>
+        <pose>0 0 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      
       <light name='sun'>
         <pose>0 0 10 0 -0 0</pose>
       </light>

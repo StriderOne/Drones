@@ -1,8 +1,8 @@
 <launch>
      <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-     <arg name="paused" value="false" />
+     <arg name="paused" value="true" />
      <arg name="verbose" value="true" />
-     <arg name="world_name" default="$(find mascot)/worlds/gas_station.world" />
+     <arg name="world_name" default="$(find mascot)/worlds/sim_world.world" />
 
      <!-- <include file="$(find mascot)/launch/launch_file_generator.py" /> -->
      <!-- <node name="launch_generator" type="launch_file_generator.py" pkg="mascot" /> -->
