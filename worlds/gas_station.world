@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <sdf version='1.7'>
   <world name='default'>
+
+    <include>
+      <uri>model://dust</uri>
+    </include>
+
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -19,55 +24,7 @@
         <falloff>0</falloff>
       </spot>
     </light>
-    <model name='ground_plane'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
-              </ode>
-              <torsional>
-                <mu>100</mu>
-                <mu2>100</mu2>
-              </torsional>
-            </friction>
-            <contact>
-                <mu>100</mu>
-                <mu2>100</mu2>
-            </contact>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
+   
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -89,115 +46,15 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <!-- <model name='Gas Station'>
-      <static>1</static>
-      <link name='link'>
-        <pose>0 0 0 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://gas_station/meshes/gas_station.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://gas_station/meshes/gas_station.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://gas_station/materials/scripts</uri>
-              <uri>model://gas_station/materials/textures</uri>
-              <name>GasStation/Diffuse</name>
-            </script>
-            <shader type='normal_map_tangent_space'>
-              <normal_map>GasStation_Normal.png</normal_map>
-            </shader>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>-14.4307 0.545255 0 0 -0 0</pose>
-    </model> -->
-    <model name="board" static="true">
-      <static>true</static>
-      <link name="link">
-          <static>true</static>
-          <origin pose="0 0 0 0 0 0"/>
-          <collision name="collision">
-              <geometry>
-                  <mesh>
-                    <uri>file://calib_board.dae</uri>
-                    <scale>1000 1 1</scale>
-                  </mesh>
-              </geometry>
-          </collision>
-          <visual name="visual" cast_shadows="false">
-              <geometry>
-                  <mesh>
-                    <uri>file://calib_board.dae</uri>
-                    <scale>1000 1 1</scale>
-                  </mesh>
-              </geometry>
-          </visual>
-      </link>
-      <gazebo reference="link">
-        <gravity>0</gravity>
-        <turnGravityOff>true</turnGravityOff>
-      </gazebo>
-    </model>
+  
+  
+    
+
     <state world_name='default'>
       <sim_time>176 986000000</sim_time>
       <real_time>178 95544114</real_time>
       <wall_time>1684998385 919800226</wall_time>
       <iterations>176986</iterations>
-      <!-- <model name='Gas Station'>
-        <pose>-14.4307 0.545255 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>-14.4307 0.545255 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model> -->
-      <model name='ground_plane'>
-        <pose>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='board'>
-        <pose>0 0 0 0 0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0 0 0 0 0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       
       <light name='sun'>
         <pose>0 0 10 0 -0 0</pose>
@@ -210,5 +67,7 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+
+   
   </world>
 </sdf>

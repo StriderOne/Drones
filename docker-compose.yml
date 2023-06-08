@@ -5,7 +5,7 @@ services:
   scene:
     image: drone_base_image
     container_name: drones
-    entrypoint: ["/bin/bash", "-ci", "cd /ros_ws && catkin build && source devel/setup.bash && roslaunch mascot simulation.launch"]
+    entrypoint: ["/bin/bash", "-ci", "cd /ros_ws && apt-get install ros-noetic-teleop-twist-keyboard && catkin build && source devel/setup.bash && roslaunch mascot simulation.launch chess_calibration:=true"]
     environment:
       - DISPLAY
       - XAUTORITY

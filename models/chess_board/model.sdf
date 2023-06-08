@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+    <model name="chess_board" static="true">
+        <static>true</static>
+        <link name="link">
+            <static>true</static>
+            <origin pose="0 0 0 0 0 0"/>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                    <uri>file://models/chess_board/chess_board.dae</uri>
+                    <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="visual" cast_shadows="false">
+                <geometry>
+                    <mesh>
+                    <uri>file://models/chess_board/chess_board.dae</uri>
+                    <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

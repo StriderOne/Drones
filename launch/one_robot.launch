@@ -2,10 +2,8 @@
     <arg name="robot_name"/>
     <arg name="init_pose"/>
     <arg name="gui" default="false" />
-    <!-- <arg name="model" default="/ros_ws/src/urdf/model.xacro"/> -->
-    <arg name="rvizconfig" default="$(find mascot)/urdf/urdf.rviz" />
+    
     <param name="robot_description" command="$(find xacro)/xacro $(find mascot)/urdf/model.xacro robot_name:=$(arg robot_name)" /> 
-    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find mascot)/urdf/model.xacro" /> -->
 
     <node name="spawn_minibot_model" pkg="gazebo_ros" type="spawn_model"
      args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"
@@ -14,7 +12,4 @@
     <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
     <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> -->
-
-
 </launch>

@@ -4,14 +4,13 @@
                 <arg name="ns" value="r1"/>
                 <param name="robot_description" command="$(find xacro)/xacro $(find mascot)/urdf/model.xacro robot_name:=$(arg ns)" />                                        
                 <include file="$(find mascot)/launch/one_robot.launch">
-                <arg name="init_pose" value="-x -1 -y 1 -z 0.0165939" />
+                <arg name="init_pose" value="-x -7.9 -y -7.7 -z 1.31" />
                 <arg name="robot_name" value="r1" />
                 </include>
             </group>
 
-             
 
-            <group ns="r2">
+            <!-- <group ns="r2">
                 <arg name="ns" value="r2"/>
                 <param name="robot_description" command="$(find xacro)/xacro $(find mascot)/urdf/model.xacro robot_name:=$(arg ns)" />                                        
                 <include file="$(find mascot)/launch/one_robot.launch">
@@ -40,6 +39,6 @@
                 <arg name="init_pose" value="-x 1 -y 1 -z 0" />
                 <arg name="robot_name" value="r4" />
                 </include>
-            </group>
+            </group> -->
 
 </launch>
